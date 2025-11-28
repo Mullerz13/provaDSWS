@@ -51,13 +51,22 @@ def index():
 
 
 # Rotas que devem mostrar “Não disponível”
-nao_disp = ["/professores", "/disciplinas", "/cursos", "/ocorrencias"]
+nao_disp = {
+    "professores": "/professores",
+    "disciplinas": "/disciplinas",
+    "cursos": "/cursos",
+    "ocorrencias": "/ocorrencias"
+}
 
-for r in nao_disp:
-    def handler(route=r):
+def make_handler():
+    def handler():
         return render_template("nao_disponivel.html",
                                data=datetime.now().strftime('%B %d, %Y %I:%M %p'))
-    app.add_url_rule(r, view_func=handler)
+    return handler
+
+for endpoint, route in nao_disp.items():
+    app.add_url_rule(route, endpoint, make_handler())
+
 
 
 @app.route("/alunos", methods=["GET", "POST"])
