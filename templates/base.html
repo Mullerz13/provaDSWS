@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação Semestral</title>
+    <style>
+        nav {
+            background: #222;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Avaliação semestral</a>
+    <a href="/professores">Cadastro de Professores</a>
+    <a href="/disciplinas">Cadastro de Disciplinas</a>
+    <a href="/alunos">Cadastro de Alunos</a>
+    <a href="/cursos">Cadastro de Cursos</a>
+    <a href="/ocorrencias">Cadastro de Ocorrências</a>
+</nav>
+
+<div class="container">
+    {% block conteudo %}{% endblock %}
+</div>
+
+</body>
+</html>

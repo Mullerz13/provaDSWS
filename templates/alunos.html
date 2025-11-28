@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+<h2>Cadastre o novo Aluno:</h2>
+
+<form method="POST">
+    <input name="nome" placeholder="Nome do aluno" style="width:400px; padding:8px;"><br><br>
+
+    <label>Disciplina associada:</label><br>
+    <select name="disciplina" style="width:400px; padding:8px;">
+        <option value="TCOA5">TCOA5</option>
+        <option value="PJIA5">PJIA5</option>
+        <option value="DSWA5">DSWA5</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Cadastrar</button>
+</form>
+
+<h2 style="margin-top:40px;">Relação de alunos cadastrados</h2>
+
+<table border="1" cellpadding="8" style="border-collapse: collapse; width:500px;">
+    <tr>
+        <th>Aluno</th>
+        <th>Disciplina</th>
+    </tr>
+
+    {% for aluno, disciplina in alunos %}
+    <tr>
+        <td>{{ aluno }}</td>
+        <td>{{ disciplina }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
